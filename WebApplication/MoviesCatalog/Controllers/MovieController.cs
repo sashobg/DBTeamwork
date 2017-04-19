@@ -118,7 +118,7 @@ namespace Movies.Controllers
 
         // POST: Movie/Create
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(MovieViewModel model, HttpPostedFileBase picture)
         {
             if (ModelState.IsValid)
@@ -200,6 +200,7 @@ namespace Movies.Controllers
 
 
         // GET: Movie/Edit
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -277,6 +278,7 @@ namespace Movies.Controllers
 
         // POST: Movie/Edit/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(MovieViewModel model)
         {
             // Check if model state is valid
@@ -362,6 +364,7 @@ namespace Movies.Controllers
 
 
         // GET: Movie/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -391,6 +394,7 @@ namespace Movies.Controllers
 
         // POST: Movie/Delete/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ActionName("Delete")]
         public ActionResult DeleteConfirmed(int? id)
         {

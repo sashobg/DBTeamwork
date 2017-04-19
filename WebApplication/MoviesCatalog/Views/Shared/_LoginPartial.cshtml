@@ -6,13 +6,13 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">
-        <li> @Html.ActionLink("Всички филми", "Index", "Movie", new { area = "" })</li>
+        <li> @Html.ActionLink("Всички филми", "List", "Movie")</li>
         @if (User.IsInRole("Admin"))
         {
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Админ<span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <li>@Html.ActionLink("Филми", "List", "Movie")</li>
+                <ul class="dropdown-menu" role="menu">              
+                    <li>@Html.ActionLink("Добави филм", "Create", "Movie")</li>
                     <li>@Html.ActionLink("Актьори", "List", "Actor")</li>
                     <li>@Html.ActionLink("Режисьори", "List", "Director")</li>
                     <li>@Html.ActionLink("Жанрове", "List", "Genre")</li>

@@ -8,6 +8,7 @@ using Movies.Models;
 
 namespace Movies.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class StudioController : Controller
     {
        
