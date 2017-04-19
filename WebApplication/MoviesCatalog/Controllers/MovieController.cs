@@ -21,7 +21,7 @@ namespace Movies.Controllers
         }
 
         // GET: Movie/List
-        public ActionResult List(int? genreId)
+        public ActionResult List(int? genreId, string search)
         {
            
             using (var database = new MoviesDbContext())
@@ -37,6 +37,15 @@ namespace Movies.Controllers
                     ViewBag.categoryId = genreId;
                     movies = movies.Where(a => a.Genres.Any(g => g.Id == genreId)).ToList();
                 }
+
+                if (!String.IsNullOrEmpty(search))
+                {
+                    movies = movies.Where(s => s.Title.Contains(search) ||
+                    s.Actors.Any(a=>(a.FirstName + " " + a.LastName).Contains(search)) || 
+                    s.Studio.Name.Contains(search))
+                        .ToList();
+                }
+                ViewBag.CurrentFilter = search;
                 return View(movies);
             }
             

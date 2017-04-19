@@ -5,13 +5,25 @@
 }
 
 <div class="container">
+    <center>
+        <div class="row">
+            @using (Html.BeginForm("List", "Movie", FormMethod.Get))
+            {
+                <div class="form-group">
+                    @Html.TextBox("search", ViewBag.CurrentFilter as string , new { @placeholder = "Намери филм", @class="form-control", @style= "display: inline" })
+                    <button class="btn btn-info" type="submit">Търси</button>
+                </div>
+            }
+        </div>
+    </center>
     <div class="row">
         @if (Model.Count() == 0)
         {
             <hr>
-            
+
             <div class="text-center">
-                <h3><i>Няма намерени филми</i></h3>
+                <h3><i>Няма намерени филми</i>
+                </h3>
             </div>
         }
         @foreach (var movie in Model)
