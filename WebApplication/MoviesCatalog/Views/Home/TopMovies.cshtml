@@ -1,0 +1,64 @@
+﻿@model List<Movies.Models.Movie>
+@{
+    ViewBag.Title = "Топ 10 филма";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="list-group">
+                @foreach (var genre in ViewBag.Genres)
+                {
+                    @Html.ActionLink(string.Format($"{genre.Name}"),
+                        "List", "Movie", new { @genreId = genre.Id }, new { @class = "list-group-item" })
+                }
+            </div>
+        </div>
+        <div class="col-sm-10">
+    <h2 class="text-center"> Топ 10 филма </h2>
+    @foreach (var movie in Model)
+    {
+        <div class="col-sm-3">
+            <article>
+                <header>
+                    <h3>
+                        @Html.ActionLink(@movie.Title, "Details", "Movie", new { @id = movie.Id }, null)
+                    </h3>
+                    <div class="pull-left">
+                        @{
+                            var genres = string.Join(", ", movie.Genres.Select(a => a.Name).ToList());
+                        }
+                        @genres
+                    </div>
+                </header>
+                @{
+                    string filePath;
+                    if (movie.Image != null)
+                    {
+                        filePath = VirtualPathUtility.ToAbsolute("~/Content/UploadedImages/") + movie.Image;
+
+                    }
+                    else
+                    {
+                        filePath = VirtualPathUtility.ToAbsolute("~/Content/UploadedImages/default.png");
+                    }
+
+                }
+
+                <img class="img-responsive" src="@filePath">
+                <p class="pull-right">Рейтинг: @movie.Rating</p>
+                <p class="pull-left">Година: @movie.ReleaseDate.Year</p>
+
+
+
+            </article>
+        </div>
+
+                    }
+    </div>
+    </div>
+</div>
+    
+<hr />
+

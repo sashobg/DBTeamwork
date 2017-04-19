@@ -1,0 +1,42 @@
+﻿
+@model List<Movies.Models.Director>
+
+@{
+    ViewBag.Title = "Всички режисьори";
+}
+
+<div class="container">
+    <div class="well">
+        <h2>Всички режисьори - @Html.ActionLink("Добави", "Create", "Director", null, new { @class = "btn btn-warning" })</h2>
+        <div class="row">
+            <table class="table table-striped table-hover col-sm-12">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Име</th>
+                    <th>Фамилия</th>
+                    <th>Дата на раждане</th>
+                    <th>Страна</th>
+                    <th>Опции</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var director in Model)
+                {
+                    <tr>
+                        <td>@director.Id</td>
+                        <td>@director.FirstName</td>
+                        <td>@director.LastName</td>
+                        <td>@director.Born</td>
+                        <td>@director.HomeTown</td>
+                        <td>
+                            @Html.ActionLink("Редактирай", "Edit", "Director", new { @id = director.Id }, null)
+                            @Html.ActionLink("Изтрий", "Delete", "Director", new { @id = director.Id }, null)
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@model List<Movies.Models.Movie>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="container">
+    <div class="row">
+        @if (Model.Count() == 0)
+        {
+            <hr>
+            
+            <div class="text-center">
+                <h3><i>Няма намерени филми</i></h3>
+            </div>
+        }
+        @foreach (var movie in Model)
+        {
+            <div class="col-sm-3">
+                <article>
+                    <header>
+                        <h2>
+                            @Html.ActionLink(@movie.Title, "Details", "Movie", new {@id = movie.Id}, null)
+                        </h2>
+                        <div class="pull-left">
+                            @{
+                                var genres = string.Join(", ", movie.Genres.Select(a => a.Name).ToList());
+                            }
+                            @genres
+                        </div>
+
+                    </header>
+                    @{
+                        string filePath;
+                        if (movie.Image != null)
+                        {
+                            filePath = VirtualPathUtility.ToAbsolute("~/Content/UploadedImages/") + movie.Image;
+
+                        }
+                        else
+                        {
+                            filePath = VirtualPathUtility.ToAbsolute("~/Content/UploadedImages/default.png");
+                        }
+
+                    }
+
+
+                    <img class="img-responsive" src="@filePath">
+
+                    <p class="pull-right">Рейтинг: @movie.Rating</p>
+                    <p class="pull-left">Година: @movie.ReleaseDate.Year</p>
+
+
+
+
+
+                </article>
+            </div>
+        }
+    </div>
+</div>
+<hr />

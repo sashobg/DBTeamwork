@@ -1,0 +1,51 @@
+﻿@model Movies.Models.Director
+
+@{
+    ViewBag.Title = "Добавяне на режисьор";
+}
+
+<div class="container">
+    <div class="well">
+        <h2>Добави режисьор</h2>
+        @using (@Html.BeginForm("Create", "Director", FormMethod.Post, new { @class = "form-horizontal" }))
+        {
+            <div class="form-group span=8 offset=2">
+                @Html.LabelFor(m => m.FirstName, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-4">
+                    @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group span=8 offset=2">
+                @Html.LabelFor(m => m.LastName, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-4">
+                    @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group span=8 offset=2">
+                @Html.LabelFor(m => m.Born, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-4">
+                    @Html.TextBoxFor(m => m.Born, new { @type = "date", @class = "form-control" })
+                </div>
+            </div>
+
+
+            <div class="form-group span=8 offset=2">
+                @Html.LabelFor(m => m.HomeTown, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-4">
+                    @Html.TextBoxFor(m => m.HomeTown, new { @class = "form-control" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-4">
+                    @Html.ActionLink("Назад", "Index", "Director", new { @class = "btn btn-default" })
+                    <input type="submit" value="Добави" class="btn btn-success" />
+                </div>
+            </div>
+        }
+    </div>
+</div>

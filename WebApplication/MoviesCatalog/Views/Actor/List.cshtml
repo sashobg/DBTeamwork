@@ -1,0 +1,40 @@
+﻿
+@model List<Movies.Models.Actor>
+
+@{
+    ViewBag.Title = "Всички актьори";
+}
+
+<div class="container">
+    <div class="well">
+        <h2>Всички актьори - @Html.ActionLink("Добави", "Create", "Actor", null, new { @class = "btn btn-warning" })</h2>
+        <div class="row">
+            <table class="table table-striped table-hover col-sm-12">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Име</th>
+                    <th>Фамилия</th>
+                    <th>Дата на раждане</th>
+                    <th>Опции</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var actor in Model)
+                {
+                    <tr>
+                        <td>@actor.Id</td>
+                        <td>@actor.FirstName</td>
+                        <td>@actor.LastName</td>
+                        <td>@actor.Born</td>
+                        <td>
+                            @Html.ActionLink("Редактирай", "Edit", "Actor", new { @id = actor.Id }, null)
+                            @Html.ActionLink("Изтрий", "Delete", "Actor", new { @id = actor.Id }, null)
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

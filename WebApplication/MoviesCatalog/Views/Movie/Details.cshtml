@@ -1,0 +1,88 @@
+﻿@model Movies.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            @{
+                string filePath;
+                if (Model.Image != null)
+                {
+                    filePath = VirtualPathUtility.ToAbsolute("~/Content/UploadedImages/") + Model.Image;
+
+                }
+                else
+                {
+                    filePath = VirtualPathUtility.ToAbsolute("~/Content/UploadedImages/default.png");
+                }
+
+            }
+      
+                    
+            <img class="img-responsive" src="@filePath" >
+                      
+        </div>
+        <div class="col-sm-8">
+            
+            <article>
+                <header>
+                    <h2>
+                        @Model.Title
+                    </h2>
+                    @{
+                        var genres = string.Join(", ", Model.Genres.Select(a => a.Name).ToList());
+                    }
+                    
+                    <p> @genres</p>
+                  
+                </header>
+                <h3 class="glyphicon glyphicon-star-empty">@Model.Rating</h3> 
+              
+                <h3>Резюме:</h3>
+                <p>
+                    @Model.Plot
+
+                </p>
+                <p>
+                @{
+                    var list = new List<string>();
+                    foreach (var actor in Model.Actors)
+                    {
+                        var actorName = actor.FirstName + " " + actor.LastName;
+                        list.Add(actorName);
+
+                    }
+                    var actors = string.Join(", ", list);
+                }
+                <h3>
+                    Участват:
+                </h3>
+                <p>@actors</p>
+                @{
+                    var director = Model.Director.FirstName + " " + Model.Director.LastName;
+                }
+                
+                <h3>
+                    Режисьор: 
+                </h3>
+                <p>@director</p>
+                <h3>
+                    Студио:
+                </h3>
+                <p>@Model.Studio.Name</p>
+                <footer class="pull-right">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", "Movie", new {@id = Model.Id}, new {@class = "btn btn-success btn-xs"})
+                        @Html.ActionLink("Delete", "Delete", "Movie", new {@id = Model.Id}, new {@class = "btn btn-danger btn-xs"})
+                    }
+                    @Html.ActionLink("Back", "Index", "Movie", null, new {@class = "btn btn-default btn-xs"})
+                </footer>
+            </article>
+        </div>
+        </div>
+</div>
+<hr />

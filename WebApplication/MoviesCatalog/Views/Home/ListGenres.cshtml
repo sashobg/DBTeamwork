@@ -1,0 +1,22 @@
+﻿@model List<Movies.Models.Genre>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var genre in Model)
+        {
+            <div class="col-sm-3 text-center">
+                <p>
+                    <h2>
+                        @Html.ActionLink(string.Format($"{genre.Name} ({genre.Movies.Count})"),
+                        "List", "Movies", new { @genreId = genre.Id }, null)
+                </h2>
+            </p>
+        </div>
+        }
+    </div>
+</div>
+<hr />

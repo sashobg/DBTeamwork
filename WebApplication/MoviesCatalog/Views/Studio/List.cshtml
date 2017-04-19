@@ -1,0 +1,37 @@
+﻿
+@model List<Movies.Models.Studio>
+
+@{
+    ViewBag.Title = "Всички студиа";
+}
+
+<div class="container">
+    <div class="well">
+        <h2>Всички студиа - @Html.ActionLink("Добави", "Create", "Studio", null, new { @class = "btn btn-warning" })</h2>
+        <div class="row">
+            <table class="table table-striped table-hover col-sm-12">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Име</th>
+                    <th>Опции</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var studio in Model)
+                {
+                    <tr>
+                        <td>@studio.Id</td>
+                        <td>@studio.Name</td>
+                        
+                        <td>
+                            @Html.ActionLink("Редактирай", "Edit", "Studio", new { @id = studio.Id }, null)
+                            @Html.ActionLink("Изтрий", "Delete", "Studio", new { @id = studio.Id }, null)
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
