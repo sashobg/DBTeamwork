@@ -1,0 +1,5 @@
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Models\bin\Debug\IMDb.Models.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Models\bin\Debug\IMDb.Models.pdb
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Models\obj\Debug\IMDb.Models.csprojResolveAssemblyReference.cache
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Models\obj\Debug\IMDb.Models.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Models\obj\Debug\IMDb.Models.pdb

@@ -1,4 +1,5 @@
 ﻿using IMDb.Data;
+using IMDb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,14 @@ namespace IMDb.Client
     {
         static void Main(string[] args)
         {
-            Utility.InitDB();
+            //Utility.InitDB();
+            var context = new IMDbEntities();
+            ListAllMovies(context);
+            
 
         }
-        static void ListAll(IMDbEntities context)
+
+        static void ListAllMovies(IMDbEntities context)
         {
             int pageSize = 14;
 
@@ -22,6 +27,7 @@ namespace IMDb.Client
             int page = 0;
             int maxPages = (int)Math.Ceiling(movies.Count / (double)pageSize);
             int pointer = 1;
+
             while (true)
             {
                 Console.BackgroundColor = ConsoleColor.Black;
@@ -41,7 +47,7 @@ namespace IMDb.Client
                         Console.BackgroundColor = ConsoleColor.White;
                         Console.ForegroundColor = ConsoleColor.Black;
                     }
-                    Console.WriteLine($"123");
+                    Console.WriteLine($"{mov.Title} | {mov.Director}");
                     current++;
                 }
 
@@ -81,20 +87,24 @@ namespace IMDb.Client
                 }
             }
         }
-        static void ShowDetails(Models.Movie Movie)
+
+        static void ShowDetails(Movie movie)
         {
-            //-------------------------------------------------------
+            
             Console.Clear();
-            Console.WriteLine($"ID: {Movie.Title}| {Movie.Director}");
+            Console.WriteLine($"{movie.Studio}");
             Utility.PrintHLine();
-            Console.WriteLine(Movie.Plot);
+            Console.WriteLine($"{movie.Director}");
             Utility.PrintHLine();
-            Console.WriteLine($"Page ");
-            Console.WriteLine("---------------------------------");
+            Console.WriteLine($"{movie.Actors}");
+            Utility.PrintHLine();
+            Console.WriteLine("PLOT");
+            Utility.PrintHLine();
+            Console.WriteLine($"{movie.Plot}");
             Console.ReadKey();
             int pageSize = 16 - Console.CursorTop;
 
-            var actors = Movie.Actors.ToList();
+            var actors = movie.Actors.ToList();
             int page = 0;
             int maxPages = (int)Math.Ceiling(actors.Count / (double)pageSize);
             int pointer = 1;
@@ -105,58 +115,68 @@ namespace IMDb.Client
                 Console.ForegroundColor = ConsoleColor.White;
 
                 Console.Clear();
-                Console.WriteLine($"ID: {Movie.Title,4}| {Movie.Director}");
+                Console.WriteLine($"{movie.Studio}");
                 Utility.PrintHLine();
-                Console.WriteLine(Movie.Plot);
+                Console.WriteLine($"{movie.Director}");
                 Utility.PrintHLine();
+                Console.WriteLine($"{movie.Actors}");
+                Utility.PrintHLine();
+                Console.WriteLine("PLOT");
+                Utility.PrintHLine();
+                Console.WriteLine($"{movie.Plot}");
                 Console.WriteLine($"Page {page + 1} of {maxPages})");
                 Console.WriteLine("---------------------------------");
 
                 int current = 1;
-       // foreach (var mov in Movie.Skip(pageSize * page).Take(pageSize))
-       // {
-       //     Console.BackgroundColor = ConsoleColor.Black;
-       //     Console.ForegroundColor = ConsoleColor.White;
-       //     if (current == pointer)
-       //     {
-       //         Console.BackgroundColor = ConsoleColor.White;
-       //         Console.ForegroundColor = ConsoleColor.Black;
-       //     }
-       //     Console.WriteLine(mov);
-       //     current++;
-       // }
-       //
-       // var key = Console.ReadKey();
-       //
-       // switch (key.Key.ToString())
-       // {
-       //     case "UpArrow":
-       //         if (pointer > 1)
-       //         {
-       //             pointer--;
-       //         }
-       //         else if (page > 0)
-       //         {
-       //             page--;
-       //             pointer = pageSize;
-       //         }
-       //         break;
-       //     case "DownArrow":
-       //         if (pointer < pageSize)
-       //         {
-       //             pointer++;
-       //         }
-       //         else if (page + 1 <= maxPages)
-       //         {
-       //             page++;
-       //             pointer = 1;
-       //         }
-       //         break;
-       //     case "Escape":
-       //         return;
-       // }
+                foreach (var act in actors.Skip(pageSize * page).Take(pageSize))
+                {
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    if (current == pointer)
+                    {
+                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.ForegroundColor = ConsoleColor.Black;
+                    }
+                    Console.WriteLine(act);
+                    current++;
+                }
+
+                var key = Console.ReadKey();
+
+                switch (key.Key.ToString())
+                {
+                    /*
+                    case "Enter":
+                        var currentProject = employees.Skip(pageSize * page + pointer - 1).First();
+                        ShowDetails(currentProject);
+                        Console.WriteLine("Enter pressed");
+                        break; */
+                    case "UpArrow":
+                        if (pointer > 1)
+                        {
+                            pointer--;
+                        }
+                        else if (page > 0)
+                        {
+                            page--;
+                            pointer = pageSize;
+                        }
+                        break;
+                    case "DownArrow":
+                        if (pointer < pageSize)
+                        {
+                            pointer++;
+                        }
+                        else if (page + 1 <= maxPages)
+                        {
+                            page++;
+                            pointer = 1;
+                        }
+                        break;
+                    case "Escape":
+                        return;
+                }
             }
         }
     }
 }
-

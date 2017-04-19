@@ -1,0 +1,7 @@
+[
+  { "Firstname" : "Jameson", "Lastname" : "Cameron", "Hometown" : "Kapuskasing, Ontario, Canada" , "Born" : "29/12/1996"},
+  { "Firstname" : "Steven", "Lastname" : "Spielberg", "Hometown" : "Cincinnati, Ohio, USA" , "Born" : "10/04/1954"},
+  { "Firstname" : "Christopher", "Lastname" : "Nolan", "Hometown" : "London, England, UK" , "Born" : "09/08/1966"},
+  { "Firstname" : "Martin", "Lastname" : "Scorsese", "Hometown" : "Queens, New York City, New York, USA" , "Born" : "10/12/1987"},
+  { "Firstname" : "Quentin", "Lastname" : "Tarantino", "Hometown" : "Knoxville, Tennessee, USA" , "Born" : "15/09/1969"}
+ 

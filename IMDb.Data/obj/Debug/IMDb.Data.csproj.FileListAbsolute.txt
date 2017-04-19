@@ -1,0 +1,12 @@
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\bin\Debug\IMDb.Data.dll.config
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\bin\Debug\IMDb.Data.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\bin\Debug\IMDb.Data.pdb
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\bin\Debug\EntityFramework.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\bin\Debug\IMDb.Models.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\bin\Debug\IMDb.Models.pdb
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\bin\Debug\EntityFramework.xml
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\obj\Debug\IMDb.Data.csprojResolveAssemblyReference.cache
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\obj\Debug\IMDb.Data.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Data\obj\Debug\IMDb.Data.pdb

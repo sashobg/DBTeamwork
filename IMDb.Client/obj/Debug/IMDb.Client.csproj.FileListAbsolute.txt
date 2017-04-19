@@ -1,0 +1,14 @@
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\IMDb.Client.exe.config
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\IMDb.Client.exe
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\IMDb.Client.pdb
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\EntityFramework.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\IMDb.Data.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\IMDb.Models.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\IMDb.Data.pdb
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\IMDb.Models.pdb
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\EntityFramework.xml
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\obj\Debug\IMDb.Client.csprojResolveAssemblyReference.cache
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\obj\Debug\IMDb.Client.exe
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Client\obj\Debug\IMDb.Client.pdb

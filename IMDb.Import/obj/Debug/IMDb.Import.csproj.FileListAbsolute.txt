@@ -1,0 +1,14 @@
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\IMDb.Import.exe.config
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\IMDb.Import.exe
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\IMDb.Import.pdb
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\IMDb.Data.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\IMDb.Models.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\EntityFramework.dll
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\IMDb.Data.pdb
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\IMDb.Models.pdb
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\bin\Debug\EntityFramework.xml
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\obj\Debug\IMDb.Import.csprojResolveAssemblyReference.cache
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\obj\Debug\IMDb.Import.exe
+C:\Users\Mitrani\Desktop\git\DBTeamwork\IMDb.Import\obj\Debug\IMDb.Import.pdb
