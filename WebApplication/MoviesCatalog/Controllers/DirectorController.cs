@@ -49,7 +49,7 @@ namespace Movies.Controllers
                     return RedirectToAction("Index");
                 }
             }
-
+            TempData["Success"] = "Режисьорът е създаден успешно.";
             return View(director);
         }
 
@@ -85,10 +85,11 @@ namespace Movies.Controllers
                 {
                     database.Entry(director).State = System.Data.Entity.EntityState.Modified;
                     database.SaveChanges();
-
+                    TempData["Success"] = "Режисьорът е редактиран успешно.";
                     return RedirectToAction("Index");
                 }
             }
+            TempData["Danger"] = "Некоректни данни. Моля, опитайте отново.";
             return View(director);
         }
 
@@ -123,6 +124,18 @@ namespace Movies.Controllers
             {
                 var director = database.Directors
                     .FirstOrDefault(d => d.Id == id);
+
+                var movies = database.Movies.Where(m => m.DirectorId == director.Id).ToList();
+                foreach (var movie in movies)
+                {
+
+                    string fullPathPrimary = Request.MapPath("~/Content/UploadedImages/" + movie.Image);
+                    if (System.IO.File.Exists(fullPathPrimary))
+                    {
+                        System.IO.File.Delete(fullPathPrimary);
+                    }
+                    database.Movies.Remove(movie);
+                }
 
 
                 database.Directors.Remove(director);

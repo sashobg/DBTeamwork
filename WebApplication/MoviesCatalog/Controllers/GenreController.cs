@@ -46,11 +46,11 @@ namespace Movies.Controllers
                 {
                     database.Genres.Add(genre);
                     database.SaveChanges();
-
+                    TempData["Success"] = "Жанрът е създаден успешно.";
                     return RedirectToAction("Index");
                 }
             }
-
+            TempData["Danger"] = "Некоректни данни. Моля, опитайте отново.";
             return View(genre);
         }
 
@@ -76,7 +76,7 @@ namespace Movies.Controllers
             }
         }
 
-        // GET: Genre/Edit
+        // POST: Genre/Edit
         [HttpPost]
         public ActionResult Edit(Genre genre)
         {
@@ -86,10 +86,11 @@ namespace Movies.Controllers
                 {
                     database.Entry(genre).State = System.Data.Entity.EntityState.Modified;
                     database.SaveChanges();
-
+                    TempData["Success"] = "Жанрът е редактиран успешно.";
                     return RedirectToAction("Index");
                 }
             }
+            TempData["Danger"] = "Некоректни данни. Моля, опитайте отново.";
             return View(genre);
         }
 

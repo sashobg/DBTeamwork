@@ -40,9 +40,9 @@ namespace Movies.Controllers
 
                 if (!String.IsNullOrEmpty(search))
                 {
-                    movies = movies.Where(s => s.Title.Contains(search) ||
-                    s.Actors.Any(a=>(a.FirstName + " " + a.LastName).Contains(search)) || 
-                    s.Studio.Name.Contains(search))
+                    movies = movies.Where(s => s.Title.ToLower().Contains(search.ToLower()) ||
+                    s.Actors.Any(a=>(a.FirstName + " " + a.LastName).ToLower().Contains(search.ToLower())) || 
+                    s.Studio.Name.ToLower().Contains(search.ToLower()))
                         .ToList();
                 }
                 ViewBag.CurrentFilter = search;
@@ -200,7 +200,7 @@ namespace Movies.Controllers
 
 
                 }
-                TempData["Success"] = "Успешно добавихте обява. Обявата Ви ще бъде видима, след като е одобрена.";
+                TempData["Success"] = "Успешно добавихте филм.";
                 return RedirectToAction("List");
             }
             TempData["Danger"] = "Некоректни данни, моля опитайте отново.";

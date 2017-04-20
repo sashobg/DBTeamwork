@@ -47,11 +47,11 @@ namespace Movies.Controllers
                 {
                     database.Studios.Add(studio);
                     database.SaveChanges();
-
+                    TempData["Success"] = "Студиото е създадено успешно.";
                     return RedirectToAction("Index");
                 }
             }
-
+            TempData["Danger"] = "Некоректни данни. Моля, опитайте отново.";
             return View(studio);
         }
 
@@ -87,10 +87,11 @@ namespace Movies.Controllers
                 {
                     database.Entry(studio).State = System.Data.Entity.EntityState.Modified;
                     database.SaveChanges();
-
+                    TempData["Success"] = "Студиото е редактирано успешно.";
                     return RedirectToAction("Index");
                 }
             }
+            TempData["Danger"] = "Некоректни данни. Моля, опитайте отново.";
             return View(studio);
         }
 
@@ -125,6 +126,17 @@ namespace Movies.Controllers
             {
                 var studio = database.Studios
                     .FirstOrDefault(a => a.Id == id);
+                var movies = database.Movies.Where(m => m.StudioId == studio.Id).ToList();
+                foreach (var movie in movies)
+                {
+                   
+                    string fullPathPrimary = Request.MapPath("~/Content/UploadedImages/" + movie.Image);
+                    if (System.IO.File.Exists(fullPathPrimary))
+                    {
+                        System.IO.File.Delete(fullPathPrimary);
+                    }
+                    database.Movies.Remove(movie);
+                }
 
 
                 database.Studios.Remove(studio);

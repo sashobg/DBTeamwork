@@ -35,6 +35,7 @@ namespace Movies.Models
 
         public string Plot { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime ReleaseDate { get; set; }
         public string Country { get; set; }
         public double Rating { get; set; }

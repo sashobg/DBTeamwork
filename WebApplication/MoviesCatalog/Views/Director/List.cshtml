@@ -27,7 +27,19 @@
                         <td>@director.Id</td>
                         <td>@director.FirstName</td>
                         <td>@director.LastName</td>
-                        <td>@director.Born</td>
+                        @{
+                            string date;
+                            if (@director.Born == null)
+                            {
+
+                                date = "-";
+                            }
+                            else
+                            {
+                                date = @director.Born.Value.ToString("dd MMMM yyyy");
+                            }
+                        }
+                        <td>@date</td>
                         <td>@director.HomeTown</td>
                         <td>
                             @Html.ActionLink("Редактирай", "Edit", "Director", new { @id = director.Id }, null)

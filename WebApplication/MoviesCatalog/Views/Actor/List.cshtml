@@ -26,7 +26,19 @@
                         <td>@actor.Id</td>
                         <td>@actor.FirstName</td>
                         <td>@actor.LastName</td>
-                        <td>@actor.Born</td>
+                        @{
+                            string date;
+                            if (@actor.Born == null)
+                            {
+
+                                date = "-";
+                            }
+                            else
+                            {
+                                date = @actor.Born.Value.ToString("dd MMMM yyyy");
+                            }
+                        }
+                        <td>@date</td>
                         <td>
                             @Html.ActionLink("Редактирай", "Edit", "Actor", new { @id = actor.Id }, null)
                             @Html.ActionLink("Изтрий", "Delete", "Actor", new { @id = actor.Id }, null)

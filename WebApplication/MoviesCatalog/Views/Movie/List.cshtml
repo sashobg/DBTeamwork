@@ -1,7 +1,7 @@
 ﻿@model List<Movies.Models.Movie>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Всички филми";
 }
 
 <div class="container">
@@ -31,9 +31,9 @@
             <div class="col-sm-3">
                 <article>
                     <header>
-                        <h2>
+                        <h3>
                             @Html.ActionLink(@movie.Title, "Details", "Movie", new {@id = movie.Id}, null)
-                        </h2>
+                        </h3>
                         <div class="pull-left">
                             @{
                                 var genres = string.Join(", ", movie.Genres.Select(a => a.Name).ToList());

@@ -45,11 +45,12 @@ namespace Movies.Controllers
                 {
                     database.Actors.Add(actor);
                     database.SaveChanges();
-
+                    TempData["Success"] = "Актьорът е създаден успешно.";
                     return RedirectToAction("Index");
+                   
                 }
             }
-
+            TempData["Danger"] = "Некоректни данни. Моля, опитайте отново.";
             return View(actor);
         }
 
@@ -85,10 +86,11 @@ namespace Movies.Controllers
                 {
                     database.Entry(actor).State = System.Data.Entity.EntityState.Modified;
                     database.SaveChanges();
-
+                    TempData["Success"] = "Режисьорът е редактиран успешно.";
                     return RedirectToAction("Index");
                 }
             }
+            TempData["Danger"] = "Некоректни данни. Моля, опитайте отново.";
             return View(actor);
         }
 
