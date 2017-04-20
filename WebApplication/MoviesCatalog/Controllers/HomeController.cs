@@ -36,7 +36,7 @@ namespace Movies.Controllers
                 var movies = database.Movies.
                     OrderByDescending(m => m.Rating)
                     .Include(m => m.Genres)
-                    .Take(10)
+                    .Take(5)
                     .ToList();
 
                 ViewBag.Genres = database.Genres.OrderBy(g => g.Name).ToList();

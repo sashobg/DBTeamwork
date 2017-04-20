@@ -1,6 +1,6 @@
 ﻿@model List<Movies.Models.Movie>
 @{
-    ViewBag.Title = "Топ 10 филма";
+    ViewBag.Title = "Топ 5 филма";
 }
 
 
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="col-sm-10">
-    <h2 class="text-center"> Топ 10 филма </h2>
+    <h2 class="text-center"> Топ 5 филма </h2>
     @foreach (var movie in Model)
     {
         <div class="col-sm-3">
